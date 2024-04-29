@@ -1,66 +1,44 @@
 {
-    "left" : [
-        {
-            "uri":"/d3/layer/03-L/video", "prefix": "objects/videoclip/spsassets/03 default - liveshow - team v team/Left/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/03-LP/video", "prefix": "objects/videoclip/spsassets/00 Projectors - team logos/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/04-L/video", "prefix": "objects/videoclip/spsassets/04 CoDM In-Game/Left/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/04-LP/video", "prefix": "objects/videoclip/spsassets/00 Projectors - team logos/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/11.1/video", "prefix": "objects/videoclip/spsassets/11 CODM Map Win/Left/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/11.1/loop_inframe", "value": 180
-        },
-        {
-            "uri":"/d3/layer/13.1/video", "prefix": "objects/videoclip/spsassets/13 CODM Series Win/Left/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/13.1/loop_inframe", "value": 180
-        },
-        {
-            "uri":"/d3/layer/14.1/video", "prefix": "objects/videoclip/spsassets/14 CODM Champions/Teams/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/14.1/loop_inframe", "value": 180
-        }
-    ],
-    "right" : [
-        {
-            "uri":"/d3/layer/03-R/video", "prefix": "objects/videoclip/spsassets/03 default - liveshow - team v team/Right/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/03-RP/video", "prefix": "objects/videoclip/spsassets/00 Projectors - team logos/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/04-R/video", "prefix": "objects/videoclip/spsassets/04 CoDM In-Game/Right/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/04-RP/video", "prefix": "objects/videoclip/spsassets/00 Projectors - team logos/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/11.2/video", "prefix": "objects/videoclip/spsassets/11 CODM Map Win/Right/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/11.2/loop_inframe", "value": 180
-        },
-        {
-            "uri":"/d3/layer/13.2/video", "prefix": "objects/videoclip/spsassets/13 CODM Series Win/Right/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/13.2/loop_inframe", "value": 180
-        },
-        {
-            "uri":"/d3/layer/14.2/video", "prefix": "objects/videoclip/spsassets/14 CODM Champions/Teams/", "postfix": ".mov.apx"
-        },
-        {
-            "uri":"/d3/layer/14.2/loop_inframe", "value": 180
-        }
-    ]
+    "transitionA" : {
+        "endpoint":"/apex-legends/transitionA",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/cue/91", "data": "1"
+            },
+            {
+                "type":"pause", "duration": 1000
+            }
+        ]
+    },
+    "transitionB" : {
+        "endpoint":"/apex-legends/transitionB",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/cue/92", "data": "1"
+            },
+            {
+                "type":"pause", "duration": 1000
+            }
+        ]
+    },
+    "test" : {
+        "endpoint":"/apex-legends/test",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/03-L/video", "data": "objects/videoclip/spsassets/03 default - liveshow - team v team/Left/{value}.mov.apx"
+            }
+        ]
+    },
+    "test2" : {
+        "endpoint":"/apex-legends/test2",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/03-L/video", "data": "objects/videoclip/spsassets/03 default - liveshow - team v team/Left/{value}.mov.apx"
+            }
+        ]
+    }
 }
