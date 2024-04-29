@@ -9,7 +9,7 @@
   "author": "Andy Lane (in a moving blanket)",
   "license": "ISC",
   "dependencies": {
-    "node-osc": "^9.0.2",
+    "node-osc": "^9.1.1",
     "osc": "^2.4.4"
   }
 }

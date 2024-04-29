@@ -2,14 +2,14 @@
 const osc = require("node-osc");
 const dynamics = require("./dynamics.json");
 
-let toRepeat = ["172.23.0.215", "172.23.1.235", "172.23.1.250"];
+let toRepeat = ["192.168.1.255"];
 let clients = [];
 let transition;
 
 let threads = [];
 
 for (let ip of toRepeat) {
-  clients.push(new osc.Client(ip, 7000));
+  clients.push(new osc.Client(ip, 7401));
 } // foreach
 
 var oscServer = new osc.Server(7001, "0.0.0.0", () => {
@@ -115,6 +115,7 @@ function send(uri, msg) {
 oscServer.on("message", function (msg) {
   console.log(`Message: ${msg}`);
   try {
+    const dynamics = require("./dynamics.json");
     messageMatch(msg);
   } catch (e) {
     console.log(e);
