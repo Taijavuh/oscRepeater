@@ -9,7 +9,11 @@
   "author": "Andy Lane (in a moving blanket)",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.19.2",
     "node-osc": "^9.1.1",
-    "osc": "^2.4.4"
+    "osc": "^2.4.4",
+    "request": "^2.88.2",
+    "self-reload-json": "^0.4.0",
+    "socket.io": "^4.7.5"
   }
 }

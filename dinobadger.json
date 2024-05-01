@@ -1,0 +1,104 @@
+{
+    "teams": [
+        {
+            "teamName": "MEAT LOVERS",
+            "teamId": "65582d5dafdc232655fb4364",
+            "idx": 1
+        },
+        {
+            "teamName": "DNOgaming",
+            "teamId": "65384c840bea132b7542493d",
+            "idx": 2
+        },
+        {
+            "teamName": "Cloud9",
+            "teamId": "6539f6f98a2c2a43c7e7f726",
+            "idx": 3
+        },
+        {
+            "teamName": "The Edgers",
+            "teamId": "6536cfe1a6db1f0e0da27889",
+            "idx": 4
+        },
+        {
+            "teamName": "EVYLUTION",
+            "teamId": "65424c758ccfc9338fe74499",
+            "idx": 5
+        },
+        {
+            "teamName": "Tempr",
+            "teamId": "6536a2ec83d6b00f79c4b9f2",
+            "idx": 6
+        },
+        {
+            "teamName": "CCE",
+            "teamId": "65407b1297c4e85e0f6d7de5",
+            "idx": 7
+        },
+        {
+            "teamName": "eternal",
+            "teamId": "65b0455b7604306b4626e1d6",
+            "idx": 8
+        },
+        {
+            "teamName": "Beargoattas",
+            "teamId": "655d9a01d91c81280b1e795b",
+            "idx": 9
+        },
+        {
+            "teamName": "STALLIONS",
+            "teamId": "65fa5da8210bfa001991267f",
+            "idx": 10
+        },
+        {
+            "teamName": "LMAO",
+            "teamId": "6615f0e7c665780018e187a2",
+            "idx": 11
+        },
+        {
+            "teamName": "ICBM",
+            "teamId": "65b5dbcebc0ca01d943ab913",
+            "idx": 12
+        },
+        {
+            "teamName": "NO NAME",
+            "teamId": "6536d9a54b4adf289f850f05",
+            "idx": 13
+        },
+        {
+            "teamName": "WEAVE",
+            "teamId": "6536ad1aa9540d0f1fbade9c",
+            "idx": 14
+        },
+        {
+            "teamName": "NGNL Esports",
+            "teamId": "653c6565ebb59d4b56e0ed90",
+            "idx": 15
+        },
+        {
+            "teamName": "Puck Yeah Bud",
+            "teamId": "65deca48bb893f001921cd18",
+            "idx": 16
+        },
+        {
+            "teamName": "Bored",
+            "teamId": "655ac42380475750faef5295",
+            "idx": 17
+        },
+        {
+            "teamName": "Tripods",
+            "teamId": "6543128034f87c8d2abdb2c2",
+            "idx": 18
+        },
+        {
+            "teamName": "Brown",
+            "teamId": "65b726c340e0512158590a46",
+            "idx": 19
+        },
+        {
+            "teamName": "Also Known As",
+            "teamId": "6552dfba4abeb7555eb67be2",
+            "idx": 20
+        }
+    ]
+}

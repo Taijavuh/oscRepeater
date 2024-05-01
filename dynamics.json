@@ -1,10 +1,19 @@
 {
+    "dinoBADGER" : {
+        "endpoint":"/apex-legends/teams/set",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/TN_{index}/video", "data": "objects/videoclip/algs media/team_images/gameplay/{value}.png.apx"
+            }
+        ]
+    },
     "transitionA" : {
         "endpoint":"/apex-legends/transitionA",
         "applyTransition": false,
         "sequence" : [
             {
-                "type":"osc_command","uri":"/d3/cue/91", "data": "1"
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 91
             },
             {
                 "type":"pause", "duration": 1000
@@ -15,29 +24,682 @@
         "endpoint":"/apex-legends/transitionB",
         "applyTransition": false,
         "sequence" : [
+            
             {
-                "type":"osc_command","uri":"/d3/cue/92", "data": "1"
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 92
             },
             {
-                "type":"pause", "duration": 1000
+                "type":"pause", "duration": 1200
             }
         ]
     },
-    "test" : {
-        "endpoint":"/apex-legends/test",
-        "applyTransition": false,
-        "sequence" : [
-            {
-                "type":"osc_command","uri":"/d3/layer/03-L/video", "data": "objects/videoclip/spsassets/03 default - liveshow - team v team/Left/{value}.mov.apx"
-            }
-        ]
-    },
-    "test2" : {
-        "endpoint":"/apex-legends/test2",
+    "holding" : {
+        "endpoint":"/apex-legends/holding",
         "applyTransition": true,
         "sequence" : [
             {
-                "type":"osc_command","uri":"/d3/layer/03-L/video", "data": "objects/videoclip/spsassets/03 default - liveshow - team v team/Left/{value}.mov.apx"
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 1
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 2000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "ballyhoo" : {
+        "endpoint":"/apex-legends/ballyhoo",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 2
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 2000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "worlds-edge" : {
+        "endpoint":"/apex-legends/worlds-edge",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 3
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 2000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    }
+    ,
+    "storm-point" : {
+        "endpoint":"/apex-legends/storm-point",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 4
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 2000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "match-winner" : {
+        "endpoint":"/apex-legends/match-winner-trig",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/MW_TN_1/video", "data": "objects/videoclip/algs media/team_images/gameplay/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/MW_TN_2/video", "data": "objects/videoclip/algs media/team_images/gameplay/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/MW_LOGO/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 5
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 54
+            },
+            {
+                "type":"pause", "duration": 2000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "series-winner" : {
+        "endpoint":"/apex-legends/series-winner-trig",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/SW_TN_1/video", "data": "objects/videoclip/algs media/team_images/gameplay/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/SW_LOGO/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 6
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 500
+            },
+            {
+                "type":"pause", "duration": 2000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "champions" : {
+        "endpoint":"/apex-legends/champions-trig",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/CW_UP_LOGO/video", "data": "objects/videoclip/algs media/team_images/logo/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/CW_LOW_LOGO/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/CW_LOGO/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 7
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 550
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "mvp" : {
+        "endpoint":"/apex-legends/mvp",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 8
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 55
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "doors-open" : {
+        "endpoint":"/apex-legends/doors-open",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 9
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "upnext" : {
+        "endpoint":"/apex-legends/up-next",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/LOW_UPNEXT/video", "data": "objects/videoclip/algs media/up next/ea_apex2024_led_upnext-match{value}_bottom.mov.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/UP_UPNEXT/video", "data": "objects/videoclip/algs media/up next/ea_apex2024_led_upnext-match{value}_top.mov.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 10
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "thank you" : {
+        "endpoint":"/apex-legends/thank-you",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 11
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "see-you-tomorrow" : {
+        "endpoint":"/apex-legends/see-you-tomorrow",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 12
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "make-some-noise" : {
+        "endpoint":"/apex-legends/make-some-noise",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 13
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "get-hyped" : {
+        "endpoint":"/apex-legends/get-hyped",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 14
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "team-takeover" : {
+        "endpoint":"/apex-legends/team-takeover-trig",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/TT_LOGO/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/TT_NAME/video", "data": "objects/videoclip/algs media/team_images/text/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/TT_LOGO_BG/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/TT_B_LOGO/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 15
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 415
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "legend-select" : {
+        "endpoint":"/apex-legends/legend-select",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 92
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 20
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 2500
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "vip-moment" : {
+        "endpoint":"/apex-legends/vip-moment",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 16
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "3-teams-remain" : {
+        "endpoint":"/apex-legends/3-teams-remain",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 251
+            },
+            {
+                "type":"pause", "duration": 3000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "gameplay-reset" : {
+        "endpoint":"/apex-legends/gameplay-reset",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/TN_{index}/brightness", "data": 1
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/S_W_{index}/brightness", "data": 1
+            }
+        ]
+    },
+    "3-teams-out" : {
+        "endpoint":"/apex-legends/3-teams-out",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/3T_{index}/mapping", "data": "objects/feedprojection/0.apx"
+            }
+        ]
+    },
+    "3-teams-in" : {
+        "endpoint":"/apex-legends/3-teams-in",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/3T_{index}/mapping", "data": "objects/feedprojection/{value}.apx"
+            }
+        ]
+    },
+    "3-teams-mp-out" : {
+        "endpoint":"/apex-legends/3-teams-mp-out",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/3T_MP_{index}/mapping", "data": "objects/feedprojection/0.apx"
+            }
+        ]
+    },
+    "3-team-mp-in" : {
+        "endpoint":"/apex-legends/3-teams-mp-in",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/3T_MP_{index}/mapping", "data": "objects/feedprojection/{value}.apx"
+            }
+        ]
+    },
+    "match-point" : {
+        "endpoint":"/apex-legends/match-point",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 95
+            },
+            {
+                "type":"pause", "duration": 3000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "gameplay" : {
+        "endpoint":"/apex-legends/gameplay",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 21
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 53
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "opening-ceremony" : {
+        "endpoint":"/apex-legends/opening-ceremony",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 31
+            }
+        ]
+    },
+    "walkout-ceremony" : {
+        "endpoint":"/apex-legends/walkout-ceremony",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 32
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "trophy-set" : {
+        "endpoint":"/apex-legends/trophy-set",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 33
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "ring_closing" : {
+        "endpoint":"/apex-legends/ring-closing",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 93
+            }
+        ]
+    },
+    "alienware" : {
+        "endpoint":"/apex-legends/alienware",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 41
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 56
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "herman-miller" : {
+        "endpoint":"/apex-legends/herman-miller",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 42
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 57
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "battle-beaver" : {
+        "endpoint":"/apex-legends/battle-beaver",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 43
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 58
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "3-sponsor" : {
+        "endpoint":"/apex-legends/3-sponsor",
+        "applyTransition": true,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 44
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 59
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
+            }
+        ]
+    },
+    "gamestats-on" : {
+        "endpoint":"/apex-legends/gamestats-on",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/STAT/play_mode", "data": 1
+            }
+        ]
+    },
+    "gamestats-off" : {
+        "endpoint":"/apex-legends/gamestats-off",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/STAT/play_mode", "data": 2
+            }
+        ]
+    },
+    "eliminated" : {
+        "endpoint":"/apex-legends/eliminated",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": "{value}i"
             }
         ]
     }
