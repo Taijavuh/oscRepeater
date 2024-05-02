@@ -460,6 +460,9 @@
             },
             {
                 "type":"osc_command","uri":"/d3/layer/S_W_{index}/brightness", "data": 1
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 999
             }
         ]
     },
