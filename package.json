@@ -3,17 +3,34 @@
   "version": "1.0.0",
   "description": "this repeats OSC commands for disguise",
   "main": "index.js",
+  "bin": {
+    "algs_d3": "./bin/index.js"
+  },
   "scripts": {
+    "build": "pkg .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andy Lane (in a moving blanket)",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
-    "node-osc": "^9.1.1",
+    "latest": "^0.2.0",
+    "node-osc": "^9.1.3",
     "osc": "^2.4.4",
+    "pkg": "^5.8.1",
     "request": "^2.88.2",
     "self-reload-json": "^0.4.0",
     "socket.io": "^4.7.5"
+  },
+  "pkg": {
+    "scripts": "*.js",
+    "assets": [
+      "node_modules/**/*", "bin/public/**/*"
+    ],
+    "targets": [
+      "node20-macos-arm64",
+      "node20-win-x64"
+    ],
+    "outputPath": "dist"
   }
 }

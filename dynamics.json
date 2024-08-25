@@ -180,13 +180,13 @@
         "applyTransition": true,
         "sequence" : [
             {
-                "type":"osc_command","uri":"/d3/layer/CW_UP_LOGO/video", "data": "objects/videoclip/algs media/team_images/logo/{value}.png.apx"
+                "type":"osc_command","uri":"/d3/layer/CW_UP_LOGO/video", "data": "objects/videoclip/algs media/team_images/CHAMPIONSHIP OVERLAYS/{value}_t.mov.apx"
             },
             {
-                "type":"osc_command","uri":"/d3/layer/CW_LOW_LOGO/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
+                "type":"osc_command","uri":"/d3/layer/CW_LOW_LOGO/video", "data": "objects/videoclip/algs media/team_images/CHAMPIONSHIP OVERLAYS/{value}_b.mov.apx"
             },
             {
-                "type":"osc_command","uri":"/d3/layer/CW_LOGO/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
+                "type":"osc_command","uri":"/d3/layer/CW_LOGO/video", "data": "objects/videoclip/algs media/team_images/black_logos/{value}.png.apx"
             },
             {
                 "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
@@ -579,6 +579,9 @@
                 "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 33
             },
             {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 52
+            },
+            {
                 "type":"pause", "duration": 1000
             },
             {
@@ -592,6 +595,12 @@
         "sequence" : [
             {
                 "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 93
+            },
+            {
+                "type":"pause", "duration": 6000
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
             }
         ]
     },
@@ -659,7 +668,7 @@
         ]
     },
     "3-sponsor" : {
-        "endpoint":"/apex-legends/3-sponsor",
+        "endpoint":"/apex-legends/3-sponsors",
         "applyTransition": true,
         "sequence" : [
             {
