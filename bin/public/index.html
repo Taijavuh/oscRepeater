@@ -60,6 +60,7 @@
 
       $scope.mpReset = (val) => {
         $scope.data.matchPoint = [];
+        socket.emit('resetMP');
         socket.emit('main', $scope.data);
         $scope.$apply();
       } // mpAdd

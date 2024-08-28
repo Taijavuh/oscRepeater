@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html ng-app="dinoBadge">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+<script>
+    var dinoBadge = angular.module('dinoBadge', []);
+    dinoBadge.controller('Dino', function($scope) {
+      var socket = io();
+      $scope.data = 'DinoBadge';
+      $scope.data.matchPoint = [];
+      $scope.data.teams = [];
+      $scope.data.pods = [];
+      $scope.rx = "TESTING";
+      $scope.reloadEpoch = 1;
+      setInterval(() => {
+        $scope.rx = "TESTING" + $scope.reloadEpoch++;
+        $scope.$apply();
+      }, 1000);
+      socket.on('main', (data) => {
+          $scope.data = data;
+          console.log(data);
+          $scope.$apply();
+      }); // onCams
+
+      $scope.getDraftList = () => {
+        socket.emit('getDraftList');
+      };
+      $scope.getDraft = () => {
+        socket.emit('getDraft');
+      };
+      $scope.mapDraft = () => {
+        socket.emit('mapDraft');
+      };
+      $scope.doDraft = () => {
+        socket.emit('setDraft');
+      };
+
+      $scope.setDraft = (key) => {
+        $scope.data.draftId = key;
+        socket.emit('main', $scope.data);
+      };
+
+      $scope.setMap = (name) => {
+        $scope.data.draftMap = name;
+        socket.emit('main', $scope.data);
+      };
+    });
+</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Apex DB D3 Draft!</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.red.min.css"
+/>
+</head>
+<body ng-controller="Dino">
+    <main class="container">
+      <h1>ALGS - disguise Data Controller</h1>
+      <h5>Team Selectors</h5>
+      <div class="grid">
+        <div><button ng-click="getDraftList()">Get List</button></div>
+        <div>
+          <details class="dropdown">
+            <summary>{{data.draftId}}</summary>
+            <ul>
+              <li ng-repeat="(key, value) in data.drafts">
+                <a href="#" ng-click="setDraft(key)">{{value.name}}</a>
+              </li>
+            </ul>
+          </details>
+        </div>
+        <div>
+          <details class="dropdown">
+            <summary>{{data.draftMap}}</summary>
+            <ul>
+              <li>
+                <a href="#" ng-click="setMap('worldsedge')">Worlds Edge</a>
+                <a href="#" ng-click="setMap('stormpoint')">Storm Point</a>
+              </li>
+            </ul>
+          </details>
+        </div>
+        <div><button ng-click="mapDraft()">Map Draft</button></div>
+        <div><button ng-click="doDraft()">Set Draft</button></div>
+      </div>
+      
+
+
+      <h5>Draft</h5>
+      <div class="grid">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Pod ID</th>
+              <th scope="col">Team Name</th>
+              <th scope="col">Pick</th>
+              <th scope="col">Map</th>
+              <th scope="col">POI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="(key, value) in data.draftMapping">
+              <td>{{key}}</td>
+              <td>{{value.team}}</td>
+              <td>{{value.pick}}</td>
+              <td>{{value.map}}</td>
+              <td>{{value.poi}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

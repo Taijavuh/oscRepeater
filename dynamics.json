@@ -33,6 +33,42 @@
             }
         ]
     },
+    "set-draft" : {
+        "endpoint":"/apex-legends/set-draft",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/layer/T_LOGO_DR {map_pick}/mapping", "data": "objects/feedprojection/{index}.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/T_PICKNO_DR {map_pick}/mapping", "data": "objects/feedprojection/{index}.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/T_PICK_DR {map_pick}/mapping", "data": "objects/feedprojection/{index}.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/T_LOGO_DR {map_pick}/video", "data": "objects/videoclip/algs media/team_images/logos/{team}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/T_PICKNO_DR {map_pick}/video", "data": "objects/videoclip/algs media/GAMEPLAY - POI DRAFT/PICKS/EA_Apex2024-Split2_LED_Gameplay-POIdraft-PICK-{pick}.mov.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/T_PICK_DR {map_pick}/video", "data": "objects/videoclip/algs media/GAMEPLAY - POI DRAFT/{map}/EA_Apex2024-Split2_LED_POIdraft-{map}_{poi}.mov.apx"
+            }
+        ]
+    },
+    "draft-trig" : {
+        "endpoint":"/apex-legends/draft-trig",
+        "applyTransition": false,
+        "sequence" : [
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 62
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/stat/play_mode", "data": 2
+            }
+        ]
+    },
     "holding" : {
         "endpoint":"/apex-legends/holding",
         "applyTransition": true,
@@ -180,13 +216,13 @@
         "applyTransition": true,
         "sequence" : [
             {
-                "type":"osc_command","uri":"/d3/layer/CW_UP_LOGO/video", "data": "objects/videoclip/algs media/team_images/CHAMPIONSHIP OVERLAYS/{value}_t.mov.apx"
+                "type":"osc_command","uri":"/d3/layer/CW_UP_LOGO/video", "data": "objects/videoclip/algs media/CHAMPIONS/EA_Apex2024-Split2_LED_Champions_{value}_top.mov.apx"
             },
             {
-                "type":"osc_command","uri":"/d3/layer/CW_LOW_LOGO/video", "data": "objects/videoclip/algs media/team_images/CHAMPIONSHIP OVERLAYS/{value}_b.mov.apx"
+                "type":"osc_command","uri":"/d3/layer/CW_LOW_LOGO/video", "data": "objects/videoclip/algs media/CHAMPIONS/EA_Apex2024-Split2_LED_Champions_{value}_bottom.mov.apx"
             },
             {
-                "type":"osc_command","uri":"/d3/layer/CW_LOGO/video", "data": "objects/videoclip/algs media/team_images/black_logos/{value}.png.apx"
+                "type":"osc_command","uri":"/d3/layer/CW_LOGO/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
             },
             {
                 "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
@@ -252,10 +288,10 @@
         "applyTransition": true,
         "sequence" : [
             {
-                "type":"osc_command","uri":"/d3/layer/LOW_UPNEXT/video", "data": "objects/videoclip/algs media/up next/ea_apex2024_led_upnext-match{value}_bottom.mov.apx"
+                "type":"osc_command","uri":"/d3/layer/LOW_UPNEXT/video", "data": "objects/videoclip/algs media/up next/ea_apex2024-split2_led_upnext-{value}_bottom.mov.apx"
             },
             {
-                "type":"osc_command","uri":"/d3/layer/UP_UPNEXT/video", "data": "objects/videoclip/algs media/up next/ea_apex2024_led_upnext-match{value}_top.mov.apx"
+                "type":"osc_command","uri":"/d3/layer/UP_UPNEXT/video", "data": "objects/videoclip/algs media/up next/ea_apex2024-split2_led_upnext-{value}_top.mov.apx"
             },
             {
                 "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
@@ -363,16 +399,13 @@
         "applyTransition": true,
         "sequence" : [
             {
-                "type":"osc_command","uri":"/d3/layer/TT_LOGO/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
-            },
-            {
-                "type":"osc_command","uri":"/d3/layer/TT_NAME/video", "data": "objects/videoclip/algs media/team_images/text/{value}.png.apx"
-            },
-            {
-                "type":"osc_command","uri":"/d3/layer/TT_LOGO_BG/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
-            },
-            {
                 "type":"osc_command","uri":"/d3/layer/TT_B_LOGO/video", "data": "objects/videoclip/algs media/team_images/logos/{value}.png.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/TT_TOP/video", "data": "objects/videoclip/algs media/Team Takeovers/EA_Apex2024-Split2_TeamTakeover_{value}_top.mov.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/TT_BOT/video", "data": "objects/videoclip/algs media/Team Takeovers/EA_Apex2024-Split2_TeamTakeover_{value}_bottom.mov.apx"
             },
             {
                 "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 252
@@ -416,7 +449,7 @@
         ]
     },
     "vip-moment" : {
-        "endpoint":"/apex-legends/vip-moment",
+        "endpoint":"/apex-legends/dropship",
         "applyTransition": true,
         "sequence" : [
             {
@@ -437,7 +470,7 @@
         ]
     },
     "3-teams-remain" : {
-        "endpoint":"/apex-legends/3-teams-remain",
+        "endpoint":"/apex-legends/3-teams-remain-depr",
         "applyTransition": false,
         "sequence" : [
             {
@@ -462,6 +495,15 @@
                 "type":"osc_command","uri":"/d3/layer/S_W_{index}/brightness", "data": 1
             },
             {
+                "type":"osc_command","uri":"/d3/layer/S_W_{index}/bookmark", "data": "objects/webbookmark/test.apx"
+            },
+            {
+                "type":"osc_command","uri":"/d3/a{index}", "data": 1
+            },
+            {
+                "type":"osc_command","uri":"/d3/b{index}", "data": 1
+            },
+            {
                 "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 999
             }
         ]
@@ -476,7 +518,7 @@
         ]
     },
     "3-teams-in" : {
-        "endpoint":"/apex-legends/3-teams-in",
+        "endpoint":"/apex-legends/3-teams-in-depr",
         "applyTransition": false,
         "sequence" : [
             {
@@ -489,7 +531,7 @@
         "applyTransition": false,
         "sequence" : [
             {
-                "type":"osc_command","uri":"/d3/layer/3T_MP_{index}/mapping", "data": "objects/feedprojection/0.apx"
+                "type":"osc_command","uri":"/d3/layer/3T_MP_{value}/brightness", "data": 0
             }
         ]
     },
@@ -498,7 +540,7 @@
         "applyTransition": false,
         "sequence" : [
             {
-                "type":"osc_command","uri":"/d3/layer/3T_MP_{index}/mapping", "data": "objects/feedprojection/{value}.apx"
+                "type":"osc_command","uri":"/d3/layer/3T_MP_{value}/brightness", "data": 1
             }
         ]
     },
@@ -510,7 +552,7 @@
                 "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 95
             },
             {
-                "type":"pause", "duration": 3000
+                "type":"pause", "duration": 5000
             },
             {
                 "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 90
@@ -529,6 +571,9 @@
             },
             {
                 "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 53
+            },
+            {
+                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": 61
             },
             {
                 "type":"pause", "duration": 1000
@@ -693,7 +738,7 @@
         "applyTransition": false,
         "sequence" : [
             {
-                "type":"osc_command","uri":"/d3/layer/STAT/play_mode", "data": 1
+                "type":"osc_command","uri":"/d3/layer/stat/play_mode", "data": 1
             }
         ]
     },
@@ -702,7 +747,7 @@
         "applyTransition": false,
         "sequence" : [
             {
-                "type":"osc_command","uri":"/d3/layer/STAT/play_mode", "data": 2
+                "type":"osc_command","uri":"/d3/layer/stat/play_mode", "data": 2
             }
         ]
     },
@@ -711,7 +756,22 @@
         "applyTransition": false,
         "sequence" : [
             {
-                "type":"osc_command","uri":"/d3/showcontrol/cue", "data": "{value}i"
+                "type":"osc_command","uri":"/d3/layer/E{value}/brightness", "data": 1.0
+            },
+            {
+                "type":"pause", "duration": 1000
+            },
+            {
+                "type":"osc_command","uri":"/d3/a{value}", "data": 0.1
+            },
+            {
+                "type":"osc_command","uri":"/d3/b{value}", "data": 0.1
+            },
+            {
+                "type":"pause", "duration": 2500
+            },
+            {
+                "type":"osc_command","uri":"/d3/layer/E{value}/brightness", "data": 0
             }
         ]
     }
