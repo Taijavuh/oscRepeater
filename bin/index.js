@@ -55,9 +55,11 @@ io.on("connection", (socket) => {
 		dataCache = msg;
 		socket.broadcast.emit("main", dataCache);
 		// check MP teams
+		/*
 		if (dataCache.matchPoint.length != dataCache.matchPoint.mpCount && dataCache.matchPoint.length > 0) {
 			doMPTeams();
 		} // if
+		 */
 	});
 	socket.on("getDraftList", () => {
 		getDraftList();
@@ -233,28 +235,28 @@ function messageMatch(msg) {
 
 		if (uri == "/apex-legends/match-winner") {
 			if (bundle[0]) {
-				dataCache.mw = bundle[0];
+				dataCache.mw = mapTeam(bundle[0]);
 				io.emit("main", dataCache);
 			}
 		} // if
 
 		if (uri == "/apex-legends/series-winner") {
 			if (bundle[0]) {
-				dataCache.sw = bundle[0];
+				dataCache.sw = mapTeam(bundle[0]);
 				io.emit("main", dataCache);
 			} // if
 		} // if
 
 		if (uri == "/apex-legends/champions") {
 			if (bundle[0]) {
-				dataCache.champs = bundle[0];
+				dataCache.champs = mapTeam(bundle[0]);
 				io.emit("main", dataCache);
 			} // if
 		} // if
 
 		if (uri == "/apex-legends/team-takeover") {
 			if (bundle[0]) {
-				dataCache.tt = bundle[0];
+				dataCache.tt = mapTeam(bundle[0]);
 				io.emit("main", dataCache);
 			} // if
 		} // if
