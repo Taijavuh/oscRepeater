@@ -78,21 +78,39 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Apex DB D3!</title>
   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="light dark" />
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.red.min.css"
-/>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.red.min.css" />
+  <style>
+    .drag-handle {
+      cursor: move;
+      padding: 0.5em;
+    }
+    .tt-list {
+      list-style: none;
+      padding: 0;
+    }
+    .tt-list li {
+      display: flex;
+      align-items: center;
+      margin: 0.5em 0;
+      padding: 0.5em;
+      background: var(--card-background-color);
+      border-radius: var(--border-radius);
+    }
+    .tt-list li button {
+      margin-left: auto;
+    }
+  </style>
 </head>
 <body ng-controller="Dino">
-    <main class="container">
-      <h1>ALGS - disguise Data Controller</h1>
-      <h5>Team Pod Mapping</h5>
-      <div class="grid">
-        <div ng-repeat="i in [].constructor(10) track by $index">
-          <label>
-            {{$index+1}}
+  <main class="container">
+    <h1>ALGS - disguise Data Controller</h1>
+    
+    <h5>Team Pod Mapping</h5>
+    <div class="grid">
+      <div ng-repeat="i in [].constructor(10) track by $index">
+        <label>
+          {{$index+1}}
           <details class="dropdown">
             <summary style="font-size:11px;">{{data.pods[$index]}}</summary>
             <ul>
@@ -101,13 +119,14 @@
               </li>
             </ul>
           </details>
-          </label>
-        </div>
+        </label>
       </div>
-      <div class="grid">
-        <div ng-repeat="i in [].constructor(10) track by $index">
-          <label>
-            {{$index+11}}
+    </div>
+    
+    <div class="grid">
+      <div ng-repeat="i in [].constructor(10) track by $index">
+        <label>
+          {{$index+11}}
           <details class="dropdown">
             <summary style="font-size:11px;">{{data.pods[$index+10]}}</summary>
             <ul>
@@ -116,26 +135,33 @@
               </li>
             </ul>
           </details>
-          </label>
-        </div>
+        </label>
       </div>
-      <h5>Team Selectors</h5>
-      <div class="grid">
-        <div>
-          <label>
-          Team Takeover
-          <details class="dropdown">
-            <summary>{{data.tt}}</summary>
-            <ul>
-              <li ng-repeat="t in data.teams track by $index">
-                <a href="#" ng-click="setTeam('tt', t)">{{t}}</a>
-              </li>
-            </ul>
-          </details>
-          </label>
-        </div>
-        <div>
-          <label>
+    </div>
+
+    <h5>Team Selectors</h5>
+    <div class="grid">
+      <div>
+        <label>Team Takeover Queue</label>
+        <details class="dropdown">
+          <summary>Add Team</summary>
+          <ul>
+            <li ng-repeat="t in data.teams track by $index">
+              <a href="#" ng-click="addTeamTakeover(t)">{{t}}</a>
+            </li>
+          </ul>
+        </details>
+        <ul class="tt-list" ui-sortable ng-model="data.teamTakeovers">
+          <li ng-repeat="team in data.teamTakeovers">
+            <span class="drag-handle">☰</span>
+            {{team}}
+            <button ng-click="removeTeamTakeover($index)">✕</button>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <label>
           Match Winner
           <details class="dropdown">
             <summary>{{data.mw}}</summary>
@@ -145,10 +171,11 @@
               </li>
             </ul>
           </details>
-          </label>
-        </div>
-        <div>
-          <label>
+        </label>
+      </div>
+
+      <div>
+        <label>
           Series Winner
           <details class="dropdown">
             <summary>{{data.sw}}</summary>
@@ -158,10 +185,11 @@
               </li>
             </ul>
           </details>
-          </label>
-        </div>
-        <div>
-          <label>
+        </label>
+      </div>
+
+      <div>
+        <label>
           Champion
           <details class="dropdown">
             <summary>{{data.champ}}</summary>
@@ -171,35 +199,39 @@
               </li>
             </ul>
           </details>
-          </label>
-        </div>
+        </label>
       </div>
-      <h5>Up Next</h5>
-      <div class="grid">
-        <div role="group">
-          <button ng-click="upNext(-1)">-</button>
-          <input name="un" type="text" placeholder="Match ID" ng-model="data.upNext" style="text-align: center;"/>
-          <button ng-click="upNext(1)">+</button>
-        </div>
+    </div>
+
+    <h5>Up Next</h5>
+    <div class="grid">
+      <div role="group">
+        <button ng-click="upNext(-1)">-</button>
+        <input name="un" type="text" placeholder="Match ID" ng-model="data.upNext" style="text-align: center;"/>
+        <button ng-click="upNext(1)">+</button>
       </div>
-      <h5>Teams @ Match Point</h5>
-      <div class="grid">
-        <div>
-          <article ng-repeat="id in data.matchPoint track by $index">{{data.pods[id-1]}}</article>
-          <label>
-            Add Team
-            <details class="dropdown">
-              <summary>Select Team to Add</summary>
-              <ul>
-                <li ng-repeat="t in data.pods track by $index">
-                  <a href="#" ng-click="mpAdd(t)">{{t}}</a>
-                </li>
-              </ul>
-            </details>
-          </label>
-        </div>
-        <div><button ng-click="mpReset()">Reset</button></div>
+    </div>
+
+    <h5>Teams @ Match Point</h5>
+    <div class="grid">
+      <div>
+        <article ng-repeat="id in data.matchPoint track by $index">{{data.pods[id-1]}}</article>
+        <label>
+          Add Team
+          <details class="dropdown">
+            <summary>Select Team to Add</summary>
+            <ul>
+              <li ng-repeat="t in data.pods track by $index">
+                <a href="#" ng-click="mpAdd(t)">{{t}}</a>
+              </li>
+            </ul>
+          </details>
+        </label>
       </div>
-    </main>
-  </body>
+      <div>
+        <button ng-click="mpReset()">Reset</button>
+      </div>
+    </div>
+  </main>
+</body>
 </html>

@@ -5,10 +5,35 @@ const osc = require("node-osc");
 const path = require("path");
 var SelfReloadJSON = require("self-reload-json");
 var dynamics = new SelfReloadJSON("./dynamics.json");
+var clientConfig = new SelfReloadJSON("./clients.json");
 const request = require("request");
 
-let toRepeat = ["10.100.101.31", "10.100.101.32", "10.100.101.33", "10.100.101.34", "10.100.101.35"];
+// Add config change handler
+clientConfig.on("updated", function (data) {
+	console.log("Client config updated, reconnecting OSC clients...");
+	// Clear existing clients
+	clients = [];
+	// Reconnect all clients
+	for (let ip of data.clients) {
+		if (ip) {
+			// Check if IP is defined
+			clients.push(new osc.Client(ip, 7401));
+			console.log(`Connected to OSC client: ${ip}`);
+		}
+	}
+	console.log(`Reconnected ${clients.length} OSC clients`);
+});
+
+// Initial client setup
 let clients = [];
+for (let ip of clientConfig.clients) {
+	if (ip) {
+		// Check if IP is defined
+		clients.push(new osc.Client(ip, 7401));
+		console.log(`Connected to OSC client: ${ip}`);
+	}
+}
+
 let transition;
 let player_url = "http://10.100.101.98:3003/teams";
 let draft_url = "https://prod-api.algstools.com/v1/poi-drafts";
@@ -94,10 +119,6 @@ setTimeout(() => {
 }, 1000);
 
 // OSC World
-
-for (let ip of toRepeat) {
-	clients.push(new osc.Client(ip, 7401));
-} // foreach
 
 var oscServer = new osc.Server(7001, "0.0.0.0", () => {
 	console.log("OSC Server is listening");
@@ -544,6 +565,7 @@ function getDraft(name, gid, date) {
 				obj.all = [];
 				obj.stormpoint = [];
 				obj.worldsedge = [];
+				obj.edistrict = [];
 				for (let i = 0; i < res.picks.length; i++) {
 					let pick = res.picks[i];
 					let obj2 = {};
@@ -556,15 +578,20 @@ function getDraft(name, gid, date) {
 					obj.all.push(obj2);
 					if (obj2.map == "StormPoint") obj.stormpoint.push(obj2);
 					if (obj2.map == "WorldsEdge") obj.worldsedge.push(obj2);
+					if (obj2.map == "E-District") obj.edistrict.push(obj2);
 				} // for
 				obj.all.sort(sortPicks);
 				obj.worldsedge.sort(sortPicks);
 				obj.stormpoint.sort(sortPicks);
+				obj.edistrict.sort(sortPicks);
 				for (let i = 0; i < obj.worldsedge.length; i++) {
 					obj.worldsedge[i].map_pick = i + 1;
 				} // for
 				for (let i = 0; i < obj.stormpoint.length; i++) {
 					obj.stormpoint[i].map_pick = i + 1;
+				} // for
+				for (let i = 0; i < obj.edistrict.length; i++) {
+					obj.edistrict[i].map_pick = i + 1;
 				} // for
 				dataCache.drafts[gid].picks = obj;
 				io.emit("main", dataCache);
